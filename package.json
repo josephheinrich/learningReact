@@ -1,0 +1,26 @@
+{
+  "name": "learningReact",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "next": "^10.0.8",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-loader-spinner": "^4.0.0"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "3.0.0",
+    "postcss-preset-env": "6.7.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
+  }
+}
