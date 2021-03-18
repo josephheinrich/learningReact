@@ -15,9 +15,9 @@ function WeatherRenderProps(props) {
     const [cityData, setCityData] = useState({});
 
     const fetchData = () => {
-        const bloomingtonURL = "http://api.openweathermap.org/data/2.5/weather?zip=47401&appid=" + weatherAPIKey;
-        const louisvilleURL = "http://api.openweathermap.org/data/2.5/weather?zip=40202&appid=" + weatherAPIKey;
-        const pasadenaURL = "http://api.openweathermap.org/data/2.5/weather?zip=91001&appid=" + weatherAPIKey;
+        const bloomingtonURL = "https://api.openweathermap.org/data/2.5/weather?zip=47401&appid=" + weatherAPIKey;
+        const louisvilleURL = "https://api.openweathermap.org/data/2.5/weather?zip=40202&appid=" + weatherAPIKey;
+        const pasadenaURL = "https://api.openweathermap.org/data/2.5/weather?zip=91001&appid=" + weatherAPIKey;
 
         Promise.all([
             axios.get(bloomingtonURL),
