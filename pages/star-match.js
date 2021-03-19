@@ -1,11 +1,11 @@
 import NavBar from '../src/components/Navbar/Navbar';
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import utils from '../utilities/utils';
 
 const StarsDisplay = props => (
     <>
         {utils.range(1, props.count).map(starId => 
-            <div key={starId} className="star"></div>
+            <div key={starId} className="star inline-block mx-3 my-1"></div>
         )}
     </>
 );
@@ -14,7 +14,7 @@ const ButtonDisplay = props => {
     return (
         <button 
         style={{backgroundColor: colors[props.status]}} 
-        className="number" 
+        className="bg-gray-200 border border-solid border-gray-500 w-12 h-12 text-lg m-2 rounded" 
         onClick={() => props.onClick(props.number, props.status)} 
         >
             {props.number}
@@ -24,9 +24,9 @@ const ButtonDisplay = props => {
 
 const PlayAgain = (props) => {
     return (
-        <div className="game-done">
+        <div>
             <div 
-            className="message"
+            className="text-4xl mb-6"
             style={{color: props.gameStatus === 'lost' ? 'red' : 'green'}}
             >
                 {props.gameStatus === 'lost' ? 'Game Over' : 'Nice'}
@@ -110,6 +110,7 @@ const Game = (props) => {
         setGameState(newCandidateNums);
       };
 
+
     return (
         <div className="flex flex-col min-h-screen">
             <NavBar></NavBar>
@@ -118,25 +119,28 @@ const Game = (props) => {
                 Pick 1 or more numbers that sum to the number of stars
                 </div>
                 <div className="body">
-                    <div className="left">
-                        {gameStatus !== 'active' ? (
-                            <PlayAgain onClick={props.startNewGame} gameStatus={gameStatus}/>
-                            ) : (
-                            <StarsDisplay count={stars} />
-                        )}
-                    </div>
-                    <div className="right">
-                        {utils.range(1, 9).map(number => 
-                            <ButtonDisplay 
-                                key={number} 
-                                number={number} 
-                                status={numberStatus(number)}
-                                onClick={onNumberClick}
-                            />
-                        )}
+                    <div className="flex flex-wrap text-center justify-center">
+                        <div className="h-60 w-60 border-solid border-gray-300 border-2 flex flex-wrap content-center justify-center">
+                            {gameStatus !== 'active' ? (
+                                <PlayAgain onClick={props.startNewGame} gameStatus={gameStatus}/>
+                                ) : (
+                                <StarsDisplay count={stars} />
+                            )}
+                        </div>
+                        <div className="grid grid-cols-3 gap-2 px-4 justify-items-center content-center h-60 w-60 border-solid border-gray-300 border-2">
+                            {utils.range(1, 9).map(number => 
+                                <ButtonDisplay 
+                                    key={number} 
+                                    number={number} 
+                                    status={numberStatus(number)}
+                                    onClick={onNumberClick}
+                                />
+                            )}
+                        </div>
                     </div>
                 </div>
-                <div className="timer">Time Remaining: {secondsLeft}</div>
+                <div className="mt-2 text-gray-600 inline-block">Time Left: {secondsLeft}</div>
+                <div className="bg-blue-800 mt-2 text-center w-40 h-6 rounded" style={{width: (secondsLeft/10)*100}}></div> 
             </div>
         </div>
     );

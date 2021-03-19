@@ -8,12 +8,12 @@ const CryptoCard = () => {
         <CryptoRenderProps>
             {({rows, isLoading}) => {
                 return (   
-                    <div className="flex-grow overflow-y-auto">
+                    <div className="flex-grow overflow-y-auto p-5">
                         <div className="flex flex-wrap justify-center sm:flex">
                             {rows.map(({base, currency, amount}, i) => {
                                 return (
                                     <div key={i}>
-                                        <div className="m-4 w-40 sm:w-44 md:w-48 justify-items-center">
+                                        <div className="m-8 w-40 sm:w-44 md:w-48 justify-items-center">
                                             <div className="rounded shadow-md overflow-hidden">
                                                 <div>
                                                     <div alt="" className="bg-green-900 h-40 object-cover"/>

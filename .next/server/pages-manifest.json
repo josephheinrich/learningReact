@@ -1,11 +1,7 @@
 {
   "/_app": "pages/_app.js",
-  "/crypto": "pages/crypto.html",
-  "/": "pages/index.html",
-  "/spotify": "pages/spotify.html",
-  "/star-match": "pages/star-match.html",
-  "/weather": "pages/weather.html",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/star-match-template": "pages/star-match-template.js",
+  "/weather": "pages/weather.js"
 }
